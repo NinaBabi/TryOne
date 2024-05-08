@@ -52,9 +52,9 @@ namespace DZ2DZ3
             {
                 Gender = Gender.undefined;
             }
-            PrintAgeMessage();
+            ToString();
         }
-        public void PrintAgeMessage()
+        public override string ToString()
         {
             Console.WriteLine("Please enter your year of born.");
           int  yearOfBirth = int.Parse(Console.ReadLine());
@@ -67,6 +67,7 @@ namespace DZ2DZ3
             {
                 a = Age.ToString();
             }
+            return $"User: Name={Name}, Age={a}";
         }
         public void Name()
         {
