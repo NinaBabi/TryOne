@@ -5,12 +5,6 @@ namespace DZ2DZ3
 {
     public class Program
     {
-        public enum Gender
-        {
-            male,
-            female,
-            undefined
-        }
         static void Main(string[] args)
         {
             User user1 = new User();
