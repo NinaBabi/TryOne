@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static DZ2DZ3.Program;
+using static DZ2DZ3.MyEnum;
 using System.Runtime.Intrinsics.X86;
 using System.Net.Cache;
 using System.Runtime.CompilerServices;
@@ -26,10 +27,10 @@ namespace DZ2DZ3
             get { return lastName; }
             set { lastName = value; }
         }
-        private int Age { get; set; }
+        public int Age { get; private set; }
 
 
-        public Gender Gender
+        public MyEnum.Gender Gender
         {
             get { return gender; }
             set { gender = value; }
@@ -57,17 +58,25 @@ namespace DZ2DZ3
         public override string ToString()
         {
             Console.WriteLine("Please enter your year of born.");
-          int  yearOfBirth = int.Parse(Console.ReadLine());
-            Age = 2024 - yearOfBirth;
-            if (Age <= 10)
+            try
             {
-                a = "a baby!";
+                int yearOfBirth = int.Parse(Console.ReadLine());
+                Age = 2024 - yearOfBirth;
+                if (Age <= 10)
+                {
+                    a = "a baby!";
+                }
+                else
+                {
+                    a = Age.ToString();
+                }
+                return $"User: Name={Name}, Age={a}";
             }
-            else
+            catch (FormatException)
             {
-                a = Age.ToString();
+                return "You entered an incorrect input. Please enter only numbers.";
             }
-            return $"User: Name={Name}, Age={a}";
+           
         }
         public void Name()
         {
