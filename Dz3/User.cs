@@ -27,7 +27,7 @@ namespace DZ2DZ3
             get { return lastName; }
             set { lastName = value; }
         }
-        public int Age { get; private set; }
+        public int Age { get; }
 
 
         public MyEnum.Gender Gender
@@ -53,10 +53,6 @@ namespace DZ2DZ3
             {
                 Gender = Gender.undefined;
             }
-            ToString();
-        }
-        public override string ToString()
-        {
             Console.WriteLine("Please enter your year of born.");
             try
             {
@@ -70,13 +66,18 @@ namespace DZ2DZ3
                 {
                     a = Age.ToString();
                 }
-                return $"User: Name={Name}, Age={a}";
+                Console.WriteLine($"User: Name={Name}, Age={a}");
             }
             catch (FormatException)
             {
-                return "You entered an incorrect input. Please enter only numbers.";
+                Console.WriteLine( "You entered an incorrect input. Please enter only numbers.");
             }
-           
+            ToString();
+        }
+        public override string ToString()
+        {
+            return $"User: Name={Name}, Age={a}";
+
         }
         public void Name()
         {
